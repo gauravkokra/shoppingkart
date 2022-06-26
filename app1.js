@@ -50,25 +50,31 @@ function addProductToCart(title, price, productImg) {
             return;
     }
 }
-}
 
 var CartBoxContent = `
-                        <img src="images/product1.jpg" class="cart-img">
+                        <img src="${productImg}" class="cart-img">
 
                         <div class="detail-box">
 
-                            <div class="cart-product-title">Earbuds</div>
-                            <div class="cart-price">500</div>
+                            <div class="cart-product-title">${title}</div>
+                            <div class="cart-price">${price}</div>
                             <input type="number" value="1" class="cart-quantity">
 
                         </div>
 
                         <i class='bx bxs-trash-alt' id = 'cart-remove'></i>`;
-
+                        
 cartShopBox.innerHTML = CartBoxContent;
 cartItems.append(cartShopBox)
-cartShopBox.getElementsByClassName('#cart-remove')[0].addEventListener('click', removeCartItem)
+//cartShopBox.getElementsByClassName('#cart-remove')[0].addEventListener('click', removeCartItem)
 cartShopBox.getElementsByClassName('cart-quantity')[0].addEventListener('change', quantityChanged)
+updateTotal();
+}
+
+// cartShopBox.innerHTML = CartBoxContent;
+// cartItems.append(cartShopBox)
+// cartShopBox.getElementsByClassName('#cart-remove')[0].addEventListener('click', removeCartItem)
+// cartShopBox.getElementsByClassName('cart-quantity')[0].addEventListener('change', quantityChanged)
 
 //Removal of Item added
 
@@ -132,3 +138,15 @@ function updateTotal() {
     }
 
 }
+
+// Buy Button working
+
+// document.getElementsByClassName('buy-button')('click', buybuttonClicked)
+
+// function buybuttonClicked (){
+
+//     alert('Your order is placed!')
+
+//     var cartContent = document.getElementsByClassName('cart-content')
+
+// }
